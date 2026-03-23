@@ -11,3 +11,13 @@ class Solution:
         for i in range(0,len(nums)):
             res[i]=abs(leftsum[i]-rightsum[i])
         return res
+        # SPACE OPTIMIZED CODE
+        total = sum(nums)
+        left_sum = 0
+        res=[]
+        for num in nums:
+            right_sum = total-(num+left_sum)
+            res.append(abs(left_sum-right_sum))
+            left_sum+=num
+        return res
+        
